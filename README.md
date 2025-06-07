@@ -11,25 +11,21 @@ dayjs().hebcal().format();
 ### Installation
 
 ```console
-bun install dayjs @wyesoftware/dayjs-hebcal-plugin
+bun add dayjs @wyesoftware/dayjs-hebcal-plugin
 ```
 
 ```console
-pnpm install dayjs @wyesoftware/dayjs-hebcal-plugin
+pnpm add dayjs @wyesoftware/dayjs-hebcal-plugin
 ```
 
 ```console
-yarn install dayjs @wyesoftware/dayjs-hebcal-plugin
-```
-
-```console
-npm install dayjs @wyesoftware/dayjs-hebcal-plugin
+yarn add dayjs @wyesoftware/dayjs-hebcal-plugin
 ```
 
 ### Usage
 
 ```js
-import dayjs form "dayjs";
+import dayjs from "dayjs";
 import hebcal from "@wyesoftware/dayjs-hebcal-plugin";
 dayjs.extend(hebcal);
 
