@@ -20,8 +20,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-          registry-url: https://registry.npmjs.org
-          always-auth: true
 
       - name: install packages
         run: rm bun.lock && bun install
@@ -29,7 +27,9 @@ jobs:
       - name: build package
         run: bun run build
 
+      - name: Setup .npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
       - name: publish release
         run: bun publish
-        env:
-          BUN_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
