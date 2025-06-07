@@ -1,0 +1,58 @@
+{
+  "name": "@wyesoftware/dayjs-hebcal-plugin",
+  "version": "1.0.0",
+  "description": "Hebcal plugin for dayjs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.js",
+  "jsdelivr": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "bun test",
+    "build": "bun run build:clean && bun run build:types && bun run build:bundles",
+    "build:clean": "rm -rf dist",
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:bundles": "bun build --entrypoints ./src/index.ts --format esm --outfile ./dist/index.mjs --target browser --minify && bun build --entrypoints ./src/index.ts --format cjs --outfile ./dist/index.js --target browser --minify",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@types/bun": "1.2.15",
+    "typescript": "5.8.3"
+  },
+  "peerDependencies": {
+    "dayjs": "*"
+  },
+  "dependencies": {
+    "@hebcal/core": "5.9.8",
+    "@hebcal/hdate": "0.14.2",
+    "@hebcal/locales": "6.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wyesoftware/dayjs-hebcal-plugin.git"
+  },
+  "author": "Wyesoftware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wyesoftware/dayjs-hebcal-plugin/issues"
+  },
+  "homepage": "https://github.com/Wyesoftware/dayjs-hebcal-plugin#readme",
+  "keywords": [
+    "dayjs",
+    "hebcal",
+    "hebrew",
+    "calendar",
+    "holidays"
+  ]
+}
